@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="augblogsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="augblogsModelStoreContainer">
+    <EntitySet Name="Options" EntityType="augblogsModel.Store.Options" store:Type="Tables" Schema="aug_SQLLogin_1" />
+    <EntitySet Name="Posts" EntityType="augblogsModel.Store.Posts" store:Type="Tables" Schema="aug_SQLLogin_1" />
+    <EntitySet Name="TermRelationships" EntityType="augblogsModel.Store.TermRelationships" store:Type="Tables" Schema="aug_SQLLogin_1" />
+    <EntitySet Name="Terms" EntityType="augblogsModel.Store.Terms" store:Type="Tables" Schema="aug_SQLLogin_1" />
+    <EntitySet Name="TermTaxonomy" EntityType="augblogsModel.Store.TermTaxonomy" store:Type="Tables" Schema="aug_SQLLogin_1" />
+    <EntitySet Name="Users" EntityType="augblogsModel.Store.Users" store:Type="Tables" Schema="aug_SQLLogin_1" />
+  </EntityContainer>
+  <EntityType Name="Options">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Value" Type="text" />
+    <Property Name="AutoLoad" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Author" Type="bigint" Nullable="false" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="PostModified" Type="datetime" Nullable="false" />
+    <Property Name="Contents" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="Excerpt" Type="nvarchar" Nullable="false" />
+    <Property Name="Status" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="PostName" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Guid" Type="varchar" MaxLength="255" />
+    <Property Name="TermsId" Type="int" Nullable="false" />
+    <Property Name="PostType" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TermRelationships">
+    <Key>
+      <PropertyRef Name="ObjectId" />
+      <PropertyRef Name="TermTaxonomyId" />
+    </Key>
+    <Property Name="ObjectId" Type="bigint" Nullable="false" />
+    <Property Name="TermTaxonomyId" Type="bigint" Nullable="false" />
+    <Property Name="TermOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="Terms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Slug" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="TermGroup" Type="int" />
+  </EntityType>
+  <EntityType Name="TermTaxonomy">
+    <Key>
+      <PropertyRef Name="TermTaxonomyId" />
+    </Key>
+    <Property Name="TermTaxonomyId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TermId" Type="bigint" Nullable="false" />
+    <Property Name="Taxonomy" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Parent" Type="bigint" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+</Schema>

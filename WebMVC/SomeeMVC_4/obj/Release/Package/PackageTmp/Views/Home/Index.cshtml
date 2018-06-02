@@ -1,0 +1,16 @@
+﻿@model SomeeMVC_4.Models.UsersModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (Model != null)
+{
+    @Model.Id<br/>
+    @Model.Username<br/>
+    @Model.Password<br/>
+    @Model.Email<br/>
+    @Model.DisplayName<br/>
+    @Model.Status
+}
