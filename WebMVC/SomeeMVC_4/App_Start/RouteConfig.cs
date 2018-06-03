@@ -18,6 +18,12 @@ namespace SomeeMVC_4
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "Admin/{action}",
+                defaults: new { controller = "Admin", action = "Login", id = UrlParameter.Optional }
+            );
         }
     }
 }

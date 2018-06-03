@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Embedded/bootstrap/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="~/Embedded/aug/css/site.css" type="text/css" />
 </head>
@@ -16,14 +16,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("AUG Blogs", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "", "Home")</li>
-                <li>@Html.ActionLink("Contact", "", "Home")</li>
+                <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                <li>@Html.ActionLink("Về Tôi", "", "Home")</li>
+                <li>@Html.ActionLink("Liên hệ", "", "Home")</li>
             </ul>
+            @if (Session["UserLogin"] != null)
+            {
+                SomeeMVC_4.Models.User user = (SomeeMVC_4.Models.User) Session["UserLogin"];
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Xin chào " + @user.Username, "", "Admin")</li>
+                    <li>@Html.ActionLink("Đăng xuất", "Logout", "Admin")</li>
+                </ul>
+            }
         </div>
     </div>
 </div>
