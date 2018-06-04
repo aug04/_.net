@@ -13,6 +13,8 @@ namespace SomeeMVC_4
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.LowercaseUrls = true;
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -20,9 +22,15 @@ namespace SomeeMVC_4
             );
 
             routes.MapRoute(
-                name: "Login",
+                name: "AdminAction",
                 url: "Admin/{action}",
                 defaults: new { controller = "Admin", action = "Login", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "AllowYearAndMonth",
+                url: "{year}/{month}/{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -9,12 +9,16 @@ namespace SomeeMVC_4.Models
         public long Id { get; set; }
 
         [Required(ErrorMessage = "Tên đăng nhập không được để trống!")]
-        [RegularExpression(@"^([a-zA-Z_0-9])$", ErrorMessage = "Tên đăng nhập không được chứa ký tự đặc biệt!")]
+        [RegularExpression(@"^([a-zA-Z_0-9]+)$", ErrorMessage = "Tên đăng nhập không được chứa ký tự đặc biệt!")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Mật khẩu không được để trống!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không giống mật khẩu phía trên!")]
+        [DataType(DataType.Password)]
+        public string ConfirmPassword { get; set; }
 
         [RegularExpression(@"^([a-zA-Z_0-9\.]+)@([a-zA-Z_0-9\.]+)\.([a-zA-Z_0-9\.]+)$", ErrorMessage = "Email không đúng định dạng!")]
         public string Email { get; set; }

@@ -4,13 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-@if (Model != null)
-{
-    @Model.Id<br/>
-    @Model.Username<br/>
-    @Model.Password<br/>
-    @Model.Email<br/>
-    @Model.DisplayName<br/>
-    @Model.Status
-}
+<div class="row">
+    <div class="col-md-12">
+        @if (Model != null)
+        {
+            @Model.Id<br/>
+            @Model.Email<br/>
+            @Model.DisplayName<br/>
+            @Model.Status
+        }
+    </div>
+</div>

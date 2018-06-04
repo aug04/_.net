@@ -1,0 +1,19 @@
+﻿@model SomeeMVC_4.Models.User
+@{
+    ViewBag.Title = "Thông tin hồ sơ cá nhân";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header"><i class="fa fa-fw fa-user"></i>Thông tin hồ sơ</div>
+    <div class="card-body">
+        Tên: @Model.Username<br />
+        Email: @Model.Email<br />
+        Tên hiển thị: @Model.DisplayName<br />
+        @{
+            var status = ((bool)@Model.Status) ? "Hoạt động" : "Không hoạt động";
+        }
+        Trạng thái: @status<br />
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
