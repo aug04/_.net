@@ -16,7 +16,11 @@ namespace SomeeMVC_4.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không giống mật khẩu phía trên!")]
+        [Required(ErrorMessage = "Mật khẩu mới không được để trống!")]
+        [DataType(DataType.Password)]
+        public string NewPassword { get; set; }
+
+        [Compare("NewPassword", ErrorMessage = "Mật khẩu xác nhận không giống mật khẩu phía trên!")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 

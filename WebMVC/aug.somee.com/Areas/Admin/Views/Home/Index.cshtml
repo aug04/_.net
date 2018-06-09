@@ -1,0 +1,15 @@
+﻿@using SomeeMVC_4.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Welcome to Administrator page</h2>
+        @if (Session["UserLogin"] != null)
+        {
+            User um = (User) @Session["UserLogin"];
+            <h4>Hello @um.DisplayName</h4>
+        }
+    </div>
+</div>

@@ -14,7 +14,7 @@ namespace SomeeMVC_4.Utilities
                 hash.Append(theByte.ToString("x2"));
             }
 
-            return hash.ToString();
+            return hash.ToString().ToUpper();
         }
     }
 }

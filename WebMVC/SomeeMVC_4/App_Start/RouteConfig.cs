@@ -15,23 +15,22 @@ namespace SomeeMVC_4
 
             routes.LowercaseUrls = true;
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            var dataTokens = new RouteValueDictionary();
+            var ns = new string[] { "SomeeMVC_4.Controllers" };
+            dataTokens["Namespaces"] = ns;
 
-            routes.MapRoute(
-                name: "AdminAction",
-                url: "Admin/{action}",
-                defaults: new { controller = "Admin", action = "Login", id = UrlParameter.Optional }
-            );
+            routes.Add(new Route("{controller}/{action}/{id}",
+                          new RouteValueDictionary(
+                             new { controller = "Home", action = "Index", id = "" }),
+                             null,
+                             dataTokens,
+                             new HyphenatedRouteHandler()));
+            
+            routes.Add(new Route("{year}/{month}/{controller}/{action}/{id}",
+                          new RouteValueDictionary(
+                             new { controller = "Home", action = "Index", id = "" }),
+                             new HyphenatedRouteHandler()));
 
-            routes.MapRoute(
-                name: "AllowYearAndMonth",
-                url: "{year}/{month}/{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
         }
     }
 }
