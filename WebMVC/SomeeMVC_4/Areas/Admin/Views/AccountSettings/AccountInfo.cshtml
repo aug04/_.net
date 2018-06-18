@@ -11,7 +11,7 @@
         Email: @Model.Email<br />
         Tên hiển thị: @Model.DisplayName<br />
         @{
-            var status = ((bool)@Model.Status) ? "Hoạt động" : "Không hoạt động";
+            var status = (@Model.Status != null && @Model.Status == true) ? "Hoạt động" : "Không hoạt động";
         }
         Trạng thái: @status<br />
     </div>

@@ -6,9 +6,8 @@ namespace SomeeMVC_4.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
 
+        [OutputCache(CacheProfile="Cache1Hour")]
         public ActionResult Index()
         {
             UsersModel um = null;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using SomeeMVC_4.Models;
 using SomeeMVC_4.Utilities;
@@ -14,7 +11,7 @@ namespace SomeeMVC_4.Areas.Admin.Controllers
         public ActionResult AccountInfo()
         {
             if (Session["UserLogin"] == null)
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
 
             User user = (User)Session["UserLogin"];
 
@@ -31,7 +28,7 @@ namespace SomeeMVC_4.Areas.Admin.Controllers
         public ActionResult ChangePassword(UsersModel um)
         {
             if (Session["UserLogin"] == null)
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
 
             User user = (User)Session["UserLogin"];
 

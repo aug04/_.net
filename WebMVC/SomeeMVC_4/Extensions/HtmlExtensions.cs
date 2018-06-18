@@ -15,7 +15,7 @@ namespace SomeeMVC_4.Extensions
                 return string.Empty;
             }
 
-            StringBuilder breadcrumb = new StringBuilder("<ol class='breadcrumb'><li class='breadcrumb-item'>").Append(helper.ActionLink("Trang chủ", "Index", "Admin").ToHtmlString()).Append("</li>");
+            StringBuilder breadcrumb = new StringBuilder("<ol class='breadcrumb'><li class='breadcrumb-item'>").Append(helper.ActionLink("Trang chủ", "Index", "Home").ToHtmlString()).Append("</li>");
 
 
             breadcrumb.Append("<li class='breadcrumb-item'>");

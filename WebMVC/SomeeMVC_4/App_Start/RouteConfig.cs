@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace SomeeMVC_4
@@ -16,7 +12,7 @@ namespace SomeeMVC_4
             routes.LowercaseUrls = true;
 
             var dataTokens = new RouteValueDictionary();
-            var ns = new string[] { "SomeeMVC_4.Controllers" };
+            var ns = new[] { "SomeeMVC_4.Controllers" };
             dataTokens["Namespaces"] = ns;
 
             routes.Add(new Route("{controller}/{action}/{id}",
