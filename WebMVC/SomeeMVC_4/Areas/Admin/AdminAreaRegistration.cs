@@ -17,7 +17,7 @@ namespace SomeeMVC_4.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context)
         {
             var route = new LowercaseDashedRoute("Admin/{controller}/{action}/{id}",
-                new RouteValueDictionary(new { action = "Index", id = UrlParameter.Optional }), 
+                new RouteValueDictionary(new { action = "Index", controller = "Home", id = UrlParameter.Optional }), 
                     new DashedRouteHandler(), this, context);
 
             context.Routes.Add("Admin_default", route);
